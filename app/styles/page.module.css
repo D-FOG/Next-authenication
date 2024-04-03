@@ -1,0 +1,35 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 0 10px;
+    border: 1px solid green;
+}
+
+.signup input{
+    width: 300px;
+    height: 40px;
+    border-radius: 14px;
+}
+
+.signup label{
+    font-weight: bold;
+}
+
+.button {
+    height: 40px;
+    border-radius: 14px;
+    background-color: dodgerblue;
+    font-weight: bold;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+}
