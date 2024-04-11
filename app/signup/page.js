@@ -35,6 +35,8 @@ export default function Signup() {
             console.log('Registration failed', error);
         }
     }
+
+    //console.log(firstname, lastname, email, password)
     return (
         <div className={styles.body}>
             <h1>Signup</h1>
