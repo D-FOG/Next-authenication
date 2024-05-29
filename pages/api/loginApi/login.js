@@ -1,19 +1,25 @@
 import {Client, Account} from 'appwrite';
-
+import {login} from '../../../appwrite/config'
 // Fetch endpoint, project ID, and API key from environment variables
-const endpoint = process.env.Appwrite_Endpoint;
-const projectId = process.env.Appwrite_Project_ID;
-const apiKey = process.env.Appwrite_API_KEY;
+// const endpoint = process.env.Appwrite_Endpoint;
+// const projectId = process.env.Appwrite_Project_ID;
+// const apiKey = process.env.Appwrite_API_KEY;
 
-// Configure Appwrite client
-const client = new Client();
+// console.log(endpoint, projectId)
 
-//.setKey(apiKey);
+// // Configure Appwrite client
+// const client = new Client();
 
-const account = new Account(client);
-client
-    .setEndpoint(endpoint)
-    .setProject(projectId)
+// //.setKey(apiKey);
+
+// const account = new Account(client);
+// export {account, client}
+
+// //console.log(account);
+// client
+//     .setEndpoint(endpoint)
+//     .setProject(projectId)
+
 
 export default async function handler(req, res){
     if (req.method === "POST"){
@@ -22,14 +28,14 @@ export default async function handler(req, res){
         console.log(loginDetail);
         console.log(email, password);
 
-        try{
-            const response = account.createEmailSession(email, password);
-            //const email = loginDetails.email;
-            //const password = loginDetails.password;
-            console.log(response);
-            res.status(200).json({session: 'successful'});
-        }catch(error){
-            res.status(500).json({error: error});
+        try {
+            const user = await login(email, password)
+        console.log(`this user ${user} `)
+        res.status(200).json(user);
+        } catch (error) {
+        res.status(400).json({ message: 'Failed to login', error });
         }
+    } else {
+        res.status(405).json({ message: 'Method Not Allowed' });
     }
 }

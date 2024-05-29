@@ -43,6 +43,7 @@ export default function Home() {
         console.log(`An error occured ${error}`);
     }
    }
+
 console.log(loginDetail);
     return (
         <div className={styles.body}>

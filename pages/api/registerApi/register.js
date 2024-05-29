@@ -3,21 +3,22 @@
 //import { Client, Databases, ID } from 'node-appwrite';
 
 import {Client, Account} from 'appwrite';
+import {signup} from '../../../appwrite/config'
 
 // Fetch endpoint, project ID, and API key from environment variables
-const endpoint = process.env.Appwrite_Endpoint;
-const projectId = process.env.Appwrite_Project_ID;
-const apiKey = process.env.Appwrite_API_KEY;
+// const endpoint = process.env.Appwrite_Endpoint;
+// const projectId = process.env.Appwrite_Project_ID;
+// const apiKey = process.env.Appwrite_API_KEY;
 
-// Configure Appwrite client
-const client = new Client();
+// // Configure Appwrite client
+// const client = new Client();
 
-//.setKey(apiKey);
+// //.setKey(apiKey);
 
-const account = new Account(client);
-client
-    .setEndpoint(endpoint)
-    .setProject(projectId)
+// const account = new Account(client);
+// client
+//     .setEndpoint(endpoint)
+//     .setProject(projectId)
 
 export default async function handler(req, res){
     // Define the generateUserId function within the handler function
@@ -42,7 +43,7 @@ export default async function handler(req, res){
         const {firstname, lastname, email, password} = req.body;
         console.log(firstname, lastname, email, password, userId);
         try {
-            const newUser = account.create(userId, email, password, firstname, lastname);
+            const newUser = signup(userId, email, password, firstname);
             console.log(newUser);
             res.status(200).json({success: `User account created successfully.`})
         }catch(error){

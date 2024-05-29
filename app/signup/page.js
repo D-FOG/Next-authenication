@@ -1,6 +1,7 @@
 "use client"
 import {useState} from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from '../styles/page.module.css'
 
 export default function Signup() {
@@ -60,7 +61,13 @@ export default function Signup() {
 
             <div className={styles.text}>
                 <p> Already have an account, login.</p>
+                <p>   </p>
+                <p>Or</p>
             </div>
+            <button className={styles.oauthButton} >
+                <Image src="/images/google.png" alt="Google Icon" width={20} height={20} className="google-icon" />
+                Login with Google
+            </button>
         </div>
     );
 }
