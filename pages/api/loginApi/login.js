@@ -1,5 +1,5 @@
 import {Client, Account} from 'appwrite';
-import {login} from '../../../appwrite/config'
+import {login} from '../../../lib/config'
 // Fetch endpoint, project ID, and API key from environment variables
 // const endpoint = process.env.Appwrite_Endpoint;
 // const projectId = process.env.Appwrite_Project_ID;

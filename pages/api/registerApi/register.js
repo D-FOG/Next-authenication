@@ -3,7 +3,7 @@
 //import { Client, Databases, ID } from 'node-appwrite';
 
 import {Client, Account} from 'appwrite';
-import {signup} from '../../../appwrite/config'
+import {signup} from '../../../lib/config'
 
 // Fetch endpoint, project ID, and API key from environment variables
 // const endpoint = process.env.Appwrite_Endpoint;
